@@ -1,0 +1,1014 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-20T22:41:26Z",
+    "total_experiments": 10000,
+    "elapsed_seconds": 16101.7,
+    "mode": "isaac_sim",
+    "seed": 2026,
+    "lhs_dimensions": 5,
+    "parameter_space": {
+      "friction": {
+        "low": 0.05,
+        "high": 1.2,
+        "scale": "log"
+      },
+      "mass": {
+        "low": 0.05,
+        "high": 2.0,
+        "scale": "log"
+      },
+      "com_offset": {
+        "low": 0.0,
+        "high": 0.4,
+        "scale": "linear"
+      },
+      "size": {
+        "low": 0.02,
+        "high": 0.12,
+        "scale": "linear"
+      },
+      "ik_noise": {
+        "low": 0.0,
+        "high": 0.04,
+        "scale": "linear"
+      }
+    },
+    "shapes": [
+      "box",
+      "cylinder",
+      "sphere",
+      "L_shape",
+      "irregular"
+    ],
+    "placements": [
+      "center_0",
+      "center_45",
+      "center_90",
+      "edge_0",
+      "edge_45",
+      "edge_90",
+      "left_0",
+      "left_45",
+      "right_0",
+      "right_45",
+      "rotated_0",
+      "rotated_45",
+      "rotated_90",
+      "rotated_135"
+    ],
+    "obstacle_range": [
+      0,
+      4
+    ],
+    "sha256": "c0aaa1c706549771534d1b3242a48964bc190df8e4048db9c75dfecf521f86cf"
+  },
+  "analysis": {
+    "overview": {
+      "total": 10000,
+      "success_count": 3332,
+      "failure_count": 6668,
+      "success_rate": 0.3332,
+      "zones": {
+        "safe": 35,
+        "boundary": 2157,
+        "danger": 7808
+      }
+    },
+    "parameter_buckets": {
+      "friction": [
+        {
+          "range": "0.0500-0.1650",
+          "count": 3757,
+          "failure_rate": 0.8086,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1650-0.2799",
+          "count": 1663,
+          "failure_rate": 0.7535,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2799-0.3949",
+          "count": 1083,
+          "failure_rate": 0.7175,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.3949-0.5099",
+          "count": 803,
+          "failure_rate": 0.6227,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.5099-0.6248",
+          "count": 640,
+          "failure_rate": 0.5422,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.6248-0.7398",
+          "count": 532,
+          "failure_rate": 0.4192,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.7398-0.8547",
+          "count": 454,
+          "failure_rate": 0.359,
+          "primary_failure": "collision"
+        },
+        {
+          "range": "0.8547-0.9697",
+          "count": 398,
+          "failure_rate": 0.3417,
+          "primary_failure": "collision"
+        },
+        {
+          "range": "0.9697-1.0847",
+          "count": 352,
+          "failure_rate": 0.375,
+          "primary_failure": "collision"
+        },
+        {
+          "range": "1.0847-1.1996",
+          "count": 318,
+          "failure_rate": 0.3113,
+          "primary_failure": "timeout"
+        }
+      ],
+      "mass": [
+        {
+          "range": "0.0500-0.2449",
+          "count": 4308,
+          "failure_rate": 0.6096,
+          "primary_failure": "grip_loss"
+        },
+        {
+          "range": "0.2449-0.4399",
+          "count": 1586,
+          "failure_rate": 0.6154,
+          "primary_failure": "grip_loss"
+        },
+        {
+          "range": "0.4399-0.6348",
+          "count": 995,
+          "failure_rate": 0.605,
+          "primary_failure": "grip_loss"
+        },
+        {
+          "range": "0.6348-0.8297",
+          "count": 726,
+          "failure_rate": 0.6818,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.8297-1.0247",
+          "count": 572,
+          "failure_rate": 0.7483,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.0247-1.2196",
+          "count": 472,
+          "failure_rate": 0.7775,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.2196-1.4146",
+          "count": 402,
+          "failure_rate": 0.8333,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.4146-1.6095",
+          "count": 350,
+          "failure_rate": 0.8829,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.6095-1.8044",
+          "count": 310,
+          "failure_rate": 0.8742,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.8044-1.9994",
+          "count": 279,
+          "failure_rate": 0.9283,
+          "primary_failure": "timeout"
+        }
+      ],
+      "com_offset": [
+        {
+          "range": "0.0000-0.0400",
+          "count": 1000,
+          "failure_rate": 0.667,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0400-0.0800",
+          "count": 1000,
+          "failure_rate": 0.684,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0800-0.1200",
+          "count": 1000,
+          "failure_rate": 0.671,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1200-0.1600",
+          "count": 1000,
+          "failure_rate": 0.646,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1600-0.2000",
+          "count": 999,
+          "failure_rate": 0.6637,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2000-0.2400",
+          "count": 1001,
+          "failure_rate": 0.6643,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2400-0.2800",
+          "count": 1000,
+          "failure_rate": 0.706,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2800-0.3200",
+          "count": 1000,
+          "failure_rate": 0.678,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.3200-0.3600",
+          "count": 999,
+          "failure_rate": 0.6336,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.3600-0.4000",
+          "count": 1001,
+          "failure_rate": 0.6543,
+          "primary_failure": "timeout"
+        }
+      ],
+      "size": [
+        {
+          "range": "0.0200-0.0300",
+          "count": 1000,
+          "failure_rate": 0.738,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0300-0.0400",
+          "count": 1000,
+          "failure_rate": 0.695,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0400-0.0500",
+          "count": 1001,
+          "failure_rate": 0.6693,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0500-0.0600",
+          "count": 999,
+          "failure_rate": 0.6937,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0600-0.0700",
+          "count": 1000,
+          "failure_rate": 0.67,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0700-0.0800",
+          "count": 1000,
+          "failure_rate": 0.649,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0800-0.0900",
+          "count": 1000,
+          "failure_rate": 0.652,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0900-0.1000",
+          "count": 1000,
+          "failure_rate": 0.62,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1000-0.1100",
+          "count": 1000,
+          "failure_rate": 0.644,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1100-0.1200",
+          "count": 1000,
+          "failure_rate": 0.637,
+          "primary_failure": "timeout"
+        }
+      ],
+      "ik_noise": [
+        {
+          "range": "0.0000-0.0040",
+          "count": 1000,
+          "failure_rate": 0.601,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0040-0.0080",
+          "count": 1000,
+          "failure_rate": 0.619,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0080-0.0120",
+          "count": 1000,
+          "failure_rate": 0.622,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0120-0.0160",
+          "count": 999,
+          "failure_rate": 0.6446,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0160-0.0200",
+          "count": 1001,
+          "failure_rate": 0.6294,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0200-0.0240",
+          "count": 1000,
+          "failure_rate": 0.648,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0240-0.0280",
+          "count": 999,
+          "failure_rate": 0.6777,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0280-0.0320",
+          "count": 1000,
+          "failure_rate": 0.714,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0320-0.0360",
+          "count": 1001,
+          "failure_rate": 0.7413,
+          "primary_failure": "grasp_miss"
+        },
+        {
+          "range": "0.0360-0.0400",
+          "count": 999,
+          "failure_rate": 0.7708,
+          "primary_failure": "grasp_miss"
+        }
+      ]
+    },
+    "shape_analysis": [
+      {
+        "value": "sphere",
+        "count": 2094,
+        "failure_rate": 0.6867,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "L_shape",
+        "count": 1947,
+        "failure_rate": 0.6764,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "irregular",
+        "count": 1944,
+        "failure_rate": 0.6656,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "box",
+        "count": 2029,
+        "failure_rate": 0.6609,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "cylinder",
+        "count": 1986,
+        "failure_rate": 0.6435,
+        "primary_failure": "timeout"
+      }
+    ],
+    "placement_analysis": [
+      {
+        "value": "left_0",
+        "count": 727,
+        "failure_rate": 0.8116,
+        "primary_failure": "collision"
+      },
+      {
+        "value": "left_45",
+        "count": 725,
+        "failure_rate": 0.8069,
+        "primary_failure": "collision"
+      },
+      {
+        "value": "right_0",
+        "count": 701,
+        "failure_rate": 0.6705,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "center_90",
+        "count": 703,
+        "failure_rate": 0.6629,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "edge_0",
+        "count": 648,
+        "failure_rate": 0.6497,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "center_0",
+        "count": 768,
+        "failure_rate": 0.6458,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "rotated_135",
+        "count": 725,
+        "failure_rate": 0.6441,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "rotated_45",
+        "count": 712,
+        "failure_rate": 0.6433,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "center_45",
+        "count": 747,
+        "failure_rate": 0.6399,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "right_45",
+        "count": 723,
+        "failure_rate": 0.639,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "rotated_90",
+        "count": 694,
+        "failure_rate": 0.6369,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "rotated_0",
+        "count": 701,
+        "failure_rate": 0.6277,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "edge_45",
+        "count": 702,
+        "failure_rate": 0.6268,
+        "primary_failure": "timeout"
+      },
+      {
+        "value": "edge_90",
+        "count": 724,
+        "failure_rate": 0.6257,
+        "primary_failure": "timeout"
+      }
+    ],
+    "danger_thresholds": {
+      "friction": [
+        {
+          "range": "0.0500-0.1075",
+          "count": 2409,
+          "failure_rate": 0.8174,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1075-0.1650",
+          "count": 1348,
+          "failure_rate": 0.793,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1650-0.2225",
+          "count": 940,
+          "failure_rate": 0.7553,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2225-0.2799",
+          "count": 723,
+          "failure_rate": 0.751,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2799-0.3374",
+          "count": 588,
+          "failure_rate": 0.7194,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.3374-0.3949",
+          "count": 495,
+          "failure_rate": 0.7152,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.3949-0.4524",
+          "count": 428,
+          "failure_rate": 0.6589,
+          "primary_failure": "timeout"
+        }
+      ],
+      "mass": [
+        {
+          "range": "0.6348-0.7323",
+          "count": 387,
+          "failure_rate": 0.6589,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.7323-0.8297",
+          "count": 339,
+          "failure_rate": 0.708,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.8297-0.9272",
+          "count": 301,
+          "failure_rate": 0.7043,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.9272-1.0247",
+          "count": 271,
+          "failure_rate": 0.797,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.0247-1.1221",
+          "count": 247,
+          "failure_rate": 0.7611,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.1221-1.2196",
+          "count": 225,
+          "failure_rate": 0.7956,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.2196-1.3171",
+          "count": 209,
+          "failure_rate": 0.8278,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.3171-1.4146",
+          "count": 193,
+          "failure_rate": 0.8394,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.4146-1.5120",
+          "count": 181,
+          "failure_rate": 0.8785,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.5120-1.6095",
+          "count": 169,
+          "failure_rate": 0.8876,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.6095-1.7070",
+          "count": 160,
+          "failure_rate": 0.875,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.7070-1.8044",
+          "count": 150,
+          "failure_rate": 0.8733,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.8044-1.9019",
+          "count": 142,
+          "failure_rate": 0.9155,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "1.9019-1.9994",
+          "count": 137,
+          "failure_rate": 0.9416,
+          "primary_failure": "timeout"
+        }
+      ],
+      "com_offset": [
+        {
+          "range": "0.0000-0.0200",
+          "count": 500,
+          "failure_rate": 0.694,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0400-0.0600",
+          "count": 500,
+          "failure_rate": 0.712,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0600-0.0800",
+          "count": 500,
+          "failure_rate": 0.656,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0800-0.1000",
+          "count": 501,
+          "failure_rate": 0.6946,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1600-0.1800",
+          "count": 500,
+          "failure_rate": 0.67,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1800-0.2000",
+          "count": 499,
+          "failure_rate": 0.6573,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2000-0.2200",
+          "count": 501,
+          "failure_rate": 0.6766,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2200-0.2400",
+          "count": 500,
+          "failure_rate": 0.652,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2400-0.2600",
+          "count": 500,
+          "failure_rate": 0.728,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.2600-0.2800",
+          "count": 500,
+          "failure_rate": 0.684,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.3000-0.3200",
+          "count": 500,
+          "failure_rate": 0.712,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.3600-0.3800",
+          "count": 501,
+          "failure_rate": 0.6567,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.3800-0.4000",
+          "count": 500,
+          "failure_rate": 0.652,
+          "primary_failure": "timeout"
+        }
+      ],
+      "size": [
+        {
+          "range": "0.0200-0.0250",
+          "count": 501,
+          "failure_rate": 0.7405,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0250-0.0300",
+          "count": 499,
+          "failure_rate": 0.7355,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0300-0.0350",
+          "count": 501,
+          "failure_rate": 0.7126,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0350-0.0400",
+          "count": 499,
+          "failure_rate": 0.6774,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0400-0.0450",
+          "count": 500,
+          "failure_rate": 0.688,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0450-0.0500",
+          "count": 501,
+          "failure_rate": 0.6507,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0500-0.0550",
+          "count": 499,
+          "failure_rate": 0.6994,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0550-0.0600",
+          "count": 500,
+          "failure_rate": 0.688,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0600-0.0650",
+          "count": 500,
+          "failure_rate": 0.656,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0650-0.0700",
+          "count": 500,
+          "failure_rate": 0.684,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0750-0.0800",
+          "count": 500,
+          "failure_rate": 0.662,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0850-0.0900",
+          "count": 500,
+          "failure_rate": 0.666,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1050-0.1100",
+          "count": 501,
+          "failure_rate": 0.6527,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.1100-0.1150",
+          "count": 500,
+          "failure_rate": 0.664,
+          "primary_failure": "timeout"
+        }
+      ],
+      "ik_noise": [
+        {
+          "range": "0.0120-0.0140",
+          "count": 500,
+          "failure_rate": 0.65,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0220-0.0240",
+          "count": 500,
+          "failure_rate": 0.65,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0240-0.0260",
+          "count": 500,
+          "failure_rate": 0.688,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0260-0.0280",
+          "count": 499,
+          "failure_rate": 0.6673,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0280-0.0300",
+          "count": 501,
+          "failure_rate": 0.6986,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0300-0.0320",
+          "count": 499,
+          "failure_rate": 0.7295,
+          "primary_failure": "grasp_miss"
+        },
+        {
+          "range": "0.0320-0.0340",
+          "count": 501,
+          "failure_rate": 0.7246,
+          "primary_failure": "timeout"
+        },
+        {
+          "range": "0.0340-0.0360",
+          "count": 500,
+          "failure_rate": 0.758,
+          "primary_failure": "grasp_miss"
+        },
+        {
+          "range": "0.0360-0.0380",
+          "count": 499,
+          "failure_rate": 0.7555,
+          "primary_failure": "grasp_miss"
+        },
+        {
+          "range": "0.0380-0.0400",
+          "count": 500,
+          "failure_rate": 0.786,
+          "primary_failure": "grasp_miss"
+        }
+      ]
+    },
+    "top_failure_modes": [
+      {
+        "type": "timeout",
+        "count": 2639,
+        "pct": 0.3958
+      },
+      {
+        "type": "grip_loss",
+        "count": 1870,
+        "pct": 0.2804
+      },
+      {
+        "type": "collision",
+        "count": 1124,
+        "pct": 0.1686
+      },
+      {
+        "type": "grasp_miss",
+        "count": 1035,
+        "pct": 0.1552
+      }
+    ],
+    "top_dangerous_combinations": [
+      {
+        "grasp_difficulty": 0.6676,
+        "friction": 0.053901,
+        "mass": 0.126251,
+        "size": 0.020522,
+        "shape": "L_shape",
+        "placement": "left_0",
+        "success": false,
+        "fail_prob": 0.9755
+      },
+      {
+        "grasp_difficulty": 0.6671,
+        "friction": 0.051463,
+        "mass": 0.062959,
+        "size": 0.026202,
+        "shape": "irregular",
+        "placement": "edge_0",
+        "success": false,
+        "fail_prob": 0.9812
+      },
+      {
+        "grasp_difficulty": 0.6656,
+        "friction": 0.072004,
+        "mass": 0.863536,
+        "size": 0.021871,
+        "shape": "sphere",
+        "placement": "edge_45",
+        "success": true,
+        "fail_prob": 0.9872
+      },
+      {
+        "grasp_difficulty": 0.6633,
+        "friction": 0.069074,
+        "mass": 1.009463,
+        "size": 0.021884,
+        "shape": "sphere",
+        "placement": "rotated_135",
+        "success": false,
+        "fail_prob": 0.9824
+      },
+      {
+        "grasp_difficulty": 0.6616,
+        "friction": 0.07475,
+        "mass": 0.097276,
+        "size": 0.024887,
+        "shape": "sphere",
+        "placement": "rotated_135",
+        "success": false,
+        "fail_prob": 0.9612
+      },
+      {
+        "grasp_difficulty": 0.6613,
+        "friction": 0.059351,
+        "mass": 0.189121,
+        "size": 0.021164,
+        "shape": "sphere",
+        "placement": "center_45",
+        "success": false,
+        "fail_prob": 0.9707
+      },
+      {
+        "grasp_difficulty": 0.6607,
+        "friction": 0.058698,
+        "mass": 0.506708,
+        "size": 0.027198,
+        "shape": "irregular",
+        "placement": "edge_45",
+        "success": false,
+        "fail_prob": 0.9733
+      },
+      {
+        "grasp_difficulty": 0.6591,
+        "friction": 0.056461,
+        "mass": 0.093489,
+        "size": 0.029205,
+        "shape": "irregular",
+        "placement": "edge_0",
+        "success": false,
+        "fail_prob": 0.9669
+      },
+      {
+        "grasp_difficulty": 0.6579,
+        "friction": 0.06935,
+        "mass": 0.240865,
+        "size": 0.024609,
+        "shape": "box",
+        "placement": "rotated_0",
+        "success": false,
+        "fail_prob": 0.9551
+      },
+      {
+        "grasp_difficulty": 0.6571,
+        "friction": 0.050974,
+        "mass": 0.325743,
+        "size": 0.027411,
+        "shape": "box",
+        "placement": "rotated_45",
+        "success": false,
+        "fail_prob": 0.9285
+      }
+    ],
+    "pearson_correlations": {
+      "friction": 0.3557,
+      "mass": -0.1963,
+      "com_offset": 0.0101,
+      "size": 0.0618,
+      "ik_noise": -0.1099,
+      "obstacles": -0.0059,
+      "fail_prob": -0.2123,
+      "grasp_difficulty": -0.3432,
+      "friction_mass_index": 0.0153
+    },
+    "phase2_recommendations": {
+      "boundary_zone_ratio": 0.2157,
+      "boundary_zone_count": 2157,
+      "focus_params": [
+        "friction",
+        "grasp_difficulty",
+        "fail_prob",
+        "mass"
+      ],
+      "suggested_gp_sample_count": 500
+    }
+  }
+}
