@@ -16,10 +16,11 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 | | Franka Panda (7DOF) | UR5e (6DOF) | Combined |
 |---|---|---|---|
 | **Experiments** | 10,000 | 10,000 | **20,000** |
-| **Success Rate** | 33.3% | TBD | TBD |
-| **Danger Zones** | 7,808 | TBD | TBD |
+| **Success Rate** | 33.3% | 74.3% | 53.8% |
+| **Failure Modes** | grasp_miss, drop, collision | grasp_miss only | 3 types |
+| **Danger Zones** | 7,808 | 2,570 | 10,378 |
 | **Parameters** | 8 | 11 (8 shared + 3 UR-specific) | 11 |
-| **GPU Hours** | 4.5h | TBD | TBD |
+| **GPU Hours** | 4.5h | 4.5h | 9h |
 | **Sampling** | Latin Hypercube | Latin Hypercube | LHS |
 
 ---
@@ -27,15 +28,31 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 ## Key Findings
 
 - **Friction < 0.15** → Both robots fail at **80%+** — a universal danger zone independent of robot type
-- **Object size < 3cm** → Grasp precision insufficient for both platforms, failure rate **83%+**
-- **Obstacles ≥ 3** → Collision rate doubles; cluttered environments are the most common failure cause
-- **UR5e shows higher timeout rate** → 6DOF limitation increases time-to-reach within workspace (TBD: exact %)
-- **Franka advantage in non-vertical approach** → 7th joint provides redundancy for angled grasps
-- **UR5e advantage in payload range** → Handles 3-5kg objects where Franka's 3kg limit is exceeded
+- **UR5e never drops** → SurfaceGripper (suction) with breakForce=MAX makes drop physically impossible; all failures are `grasp_miss`
+- **Mass is UR5e's #1 enemy** → mass [2.4–3.0) → **85% failure rate**; heavy objects defeat suction
+- **Franka's #1 factor is friction** → r=+0.36; high friction compensates for parallel-jaw grip weakness
+- **2.2× success gap** → UR5e 74.3% vs Franka 33.3% (z=−58.15, p<0.001), driven by suction reliability
+- **Obstacle immunity for UR5e** → Collision rate near zero; Franka collision count = 1,124 across 10K runs
+
+## Franka Panda vs UR5e Comparison
+
+| | Franka Panda | UR5e |
+|---|---|---|
+| **Success Rate** | 33.3% | 74.3% |
+| **95% CI** | [32.4%, 34.3%] | [73.4%, 75.2%] |
+| **Failure Modes** | grasp_miss, drop, collision | grasp_miss only |
+| **Gripper** | Finger (parallel jaw) | SurfaceGripper (suction) |
+| **Drop Rate** | 18.7% | 0% (impossible) |
+| **#1 Failure Factor** | friction (r=+0.36) | mass (heavy → miss) |
+| **DOF** | 7 | 6 |
+| **Controller** | ScriptedPickPlace | PickPlaceController |
+| **Collision Count** | 1,124 | ~0 |
 
 ---
 
-## Top Failure Correlations (Franka Panda)
+## Top Failure Correlations
+
+### Franka Panda
 
 | Parameter | Correlation (r) | Interpretation |
 |-----------|:---:|---|
@@ -44,6 +61,15 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 | fail_prob | **-0.21** | Analytic failure probability |
 | mass | **-0.20** | Heavier objects → more drops |
 | ik_noise | **-0.11** | Control noise → approach errors |
+
+### UR5e
+
+| Parameter | Correlation (r) | Interpretation |
+|-----------|:---:|---|
+| mass | **-0.35** | Heavier objects → suction failure (strongest factor) |
+| friction | **+0.18** | Moderate effect (suction less friction-dependent) |
+| ik_noise | **-0.12** | Control noise → approach miss |
+| com_offset | **-0.08** | Off-center mass → suction seal breaks |
 
 ---
 

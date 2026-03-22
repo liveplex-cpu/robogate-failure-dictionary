@@ -1,0 +1,398 @@
+{
+  "metadata": {
+    "source_franka": "robogate_demo/failure_dictionary_large.json",
+    "source_ur5e": "robogate_demo/ur5e_failure_dictionary.json",
+    "franka_n": 10000,
+    "ur5e_n": 10000
+  },
+  "overall": {
+    "n": 10000,
+    "confidence": {
+      "point_estimate": 0.3332,
+      "confidence_interval_95": [
+        0.324,
+        0.3425
+      ],
+      "confidence_level": 0.95,
+      "margin_of_error": 0.0092,
+      "sample_count": 10000,
+      "required_samples_for_5pct_margin": 342,
+      "is_statistically_significant": true,
+      "is_sufficient": true,
+      "recommendation": "현재 10000개 샘플로 충분합니다 (오차 범위 ±0.9%)."
+    },
+    "metrics_14d": {
+      "grasp_success_rate": 0.3332,
+      "cycle_time": 1.367,
+      "collision_count": 1124,
+      "drop_rate": 0.187,
+      "grasp_miss_rate": 0.1035,
+      "path_efficiency": 1.0,
+      "joint_smoothness": 0.0,
+      "approach_accuracy": 0.0,
+      "grasp_force_consistency": 0.0,
+      "contact_stability_score": 0.7612,
+      "slip_events": 0,
+      "grasp_attempt_count": 1.21,
+      "time_to_grasp": 1.382,
+      "recovery_time": 1.36,
+      "overall_robustness_score": 83.3
+    }
+  },
+  "correlations": {
+    "friction": 0.3557,
+    "mass": -0.1963,
+    "ik_noise": -0.1099,
+    "size": 0.0618,
+    "com_offset": 0.0101,
+    "obstacles": -0.0059
+  },
+  "per_parameter": {
+    "friction": [
+      {
+        "bucket": "0.050-0.094",
+        "n": 2000,
+        "success_rate": 0.18,
+        "wilson_ci_95": [
+          0.1638,
+          0.1974
+        ],
+        "margin": 0.0168
+      },
+      {
+        "bucket": "0.094-0.178",
+        "n": 2000,
+        "success_rate": 0.208,
+        "wilson_ci_95": [
+          0.1908,
+          0.2263
+        ],
+        "margin": 0.0178
+      },
+      {
+        "bucket": "0.178-0.337",
+        "n": 2000,
+        "success_rate": 0.258,
+        "wilson_ci_95": [
+          0.2393,
+          0.2776
+        ],
+        "margin": 0.0192
+      },
+      {
+        "bucket": "0.337-0.636",
+        "n": 2000,
+        "success_rate": 0.3845,
+        "wilson_ci_95": [
+          0.3634,
+          0.406
+        ],
+        "margin": 0.0213
+      },
+      {
+        "bucket": "0.636-1.200",
+        "n": 2000,
+        "success_rate": 0.6355,
+        "wilson_ci_95": [
+          0.6142,
+          0.6563
+        ],
+        "margin": 0.0211
+      }
+    ],
+    "mass": [
+      {
+        "bucket": "0.050-0.105",
+        "n": 2000,
+        "success_rate": 0.392,
+        "wilson_ci_95": [
+          0.3708,
+          0.4136
+        ],
+        "margin": 0.0214
+      },
+      {
+        "bucket": "0.105-0.219",
+        "n": 2000,
+        "success_rate": 0.3915,
+        "wilson_ci_95": [
+          0.3703,
+          0.4131
+        ],
+        "margin": 0.0214
+      },
+      {
+        "bucket": "0.219-0.457",
+        "n": 2000,
+        "success_rate": 0.3875,
+        "wilson_ci_95": [
+          0.3664,
+          0.409
+        ],
+        "margin": 0.0213
+      },
+      {
+        "bucket": "0.457-0.956",
+        "n": 2000,
+        "success_rate": 0.339,
+        "wilson_ci_95": [
+          0.3186,
+          0.36
+        ],
+        "margin": 0.0207
+      },
+      {
+        "bucket": "0.956-2.000",
+        "n": 2000,
+        "success_rate": 0.156,
+        "wilson_ci_95": [
+          0.1408,
+          0.1726
+        ],
+        "margin": 0.0159
+      }
+    ],
+    "size": [
+      {
+        "bucket": "0.020-0.040",
+        "n": 2000,
+        "success_rate": 0.2835,
+        "wilson_ci_95": [
+          0.2642,
+          0.3037
+        ],
+        "margin": 0.0197
+      },
+      {
+        "bucket": "0.040-0.060",
+        "n": 2000,
+        "success_rate": 0.3185,
+        "wilson_ci_95": [
+          0.2984,
+          0.3393
+        ],
+        "margin": 0.0204
+      },
+      {
+        "bucket": "0.060-0.080",
+        "n": 2000,
+        "success_rate": 0.3405,
+        "wilson_ci_95": [
+          0.3201,
+          0.3616
+        ],
+        "margin": 0.0208
+      },
+      {
+        "bucket": "0.080-0.100",
+        "n": 2000,
+        "success_rate": 0.364,
+        "wilson_ci_95": [
+          0.3432,
+          0.3853
+        ],
+        "margin": 0.0211
+      },
+      {
+        "bucket": "0.100-0.120",
+        "n": 2000,
+        "success_rate": 0.3595,
+        "wilson_ci_95": [
+          0.3388,
+          0.3808
+        ],
+        "margin": 0.021
+      }
+    ],
+    "ik_noise": [
+      {
+        "bucket": "0.000-0.010",
+        "n": 2499,
+        "success_rate": 0.3866,
+        "wilson_ci_95": [
+          0.3676,
+          0.4058
+        ],
+        "margin": 0.0191
+      },
+      {
+        "bucket": "0.010-0.020",
+        "n": 2501,
+        "success_rate": 0.3671,
+        "wilson_ci_95": [
+          0.3484,
+          0.3861
+        ],
+        "margin": 0.0189
+      },
+      {
+        "bucket": "0.020-0.030",
+        "n": 2500,
+        "success_rate": 0.33,
+        "wilson_ci_95": [
+          0.3118,
+          0.3487
+        ],
+        "margin": 0.0184
+      },
+      {
+        "bucket": "0.030-0.040",
+        "n": 2500,
+        "success_rate": 0.2492,
+        "wilson_ci_95": [
+          0.2326,
+          0.2665
+        ],
+        "margin": 0.0169
+      }
+    ],
+    "com_offset": [
+      {
+        "bucket": "0.000-0.100",
+        "n": 2500,
+        "success_rate": 0.3204,
+        "wilson_ci_95": [
+          0.3024,
+          0.339
+        ],
+        "margin": 0.0183
+      },
+      {
+        "bucket": "0.100-0.200",
+        "n": 2500,
+        "success_rate": 0.3468,
+        "wilson_ci_95": [
+          0.3284,
+          0.3657
+        ],
+        "margin": 0.0186
+      },
+      {
+        "bucket": "0.200-0.300",
+        "n": 2500,
+        "success_rate": 0.3232,
+        "wilson_ci_95": [
+          0.3051,
+          0.3418
+        ],
+        "margin": 0.0183
+      },
+      {
+        "bucket": "0.300-0.400",
+        "n": 2500,
+        "success_rate": 0.3424,
+        "wilson_ci_95": [
+          0.3241,
+          0.3612
+        ],
+        "margin": 0.0186
+      }
+    ]
+  },
+  "interactions": [
+    {
+      "interaction": "friction × mass",
+      "condition": "friction<0.3 & mass<0.5",
+      "n": 3509,
+      "success_rate": 0.2474,
+      "wilson_ci_95": [
+        0.2334,
+        0.2619
+      ]
+    },
+    {
+      "interaction": "friction × mass",
+      "condition": "friction<0.3 & mass≥0.5",
+      "n": 2129,
+      "success_rate": 0.1564,
+      "wilson_ci_95": [
+        0.1416,
+        0.1725
+      ]
+    },
+    {
+      "interaction": "friction × mass",
+      "condition": "friction≥0.3 & mass<0.5",
+      "n": 2733,
+      "success_rate": 0.5734,
+      "wilson_ci_95": [
+        0.5547,
+        0.5918
+      ]
+    },
+    {
+      "interaction": "friction × mass",
+      "condition": "friction≥0.3 & mass≥0.5",
+      "n": 1629,
+      "success_rate": 0.3462,
+      "wilson_ci_95": [
+        0.3235,
+        0.3697
+      ]
+    },
+    {
+      "interaction": "size × obstacles",
+      "condition": "size<4cm & obstacles<3",
+      "n": 1234,
+      "success_rate": 0.2626,
+      "wilson_ci_95": [
+        0.2388,
+        0.2878
+      ]
+    },
+    {
+      "interaction": "size × obstacles",
+      "condition": "size<4cm & obstacles≥3",
+      "n": 766,
+      "success_rate": 0.3172,
+      "wilson_ci_95": [
+        0.2853,
+        0.351
+      ]
+    },
+    {
+      "interaction": "size × obstacles",
+      "condition": "size≥4cm & obstacles<3",
+      "n": 4775,
+      "success_rate": 0.3529,
+      "wilson_ci_95": [
+        0.3394,
+        0.3665
+      ]
+    },
+    {
+      "interaction": "size × obstacles",
+      "condition": "size≥4cm & obstacles≥3",
+      "n": 3225,
+      "success_rate": 0.3349,
+      "wilson_ci_95": [
+        0.3188,
+        0.3514
+      ]
+    }
+  ],
+  "cross_robot": {
+    "franka": {
+      "n": 10000,
+      "success_rate": 0.3332,
+      "wilson_ci_95": [
+        0.324,
+        0.3425
+      ]
+    },
+    "ur5e": {
+      "n": 10000,
+      "success_rate": 0.7432,
+      "wilson_ci_95": [
+        0.7345,
+        0.7517
+      ]
+    },
+    "z_test": {
+      "z_statistic": -58.1527,
+      "p_value": 0.0,
+      "significant_at_005": true,
+      "difference": -0.41
+    }
+  }
+}
