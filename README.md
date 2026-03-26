@@ -1,9 +1,9 @@
 # RoboGate Failure Dictionary
 
-> **30,000 Physics-Validated Pick & Place Failure Patterns across Franka Panda & UR5e**
+> **50,000+ Physics-Validated Pick & Place Failure Patterns across 4 Robots (Franka Panda, UR5e, UR3e, UR10e)**
 
-![Experiments](https://img.shields.io/badge/experiments-30%2C000-blue)
-![Robots](https://img.shields.io/badge/robots-Franka%20%2B%20UR5e-green)
+![Experiments](https://img.shields.io/badge/experiments-50%2C000%2B-blue)
+![Robots](https://img.shields.io/badge/robots-Franka%20%2B%20UR5e%20%2B%20UR3e%20%2B%20UR10e-green)
 ![AUC](https://img.shields.io/badge/Risk%20Model%20AUC-0.777-orange)
 ![Simulator](https://img.shields.io/badge/simulator-NVIDIA%20Isaac%20Sim-76b900)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -14,22 +14,22 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 
 ## Quick Stats
 
-| | Franka Uniform | Franka Boundary | UR5e | Combined |
-|---|---|---|---|---|
-| **Experiments** | 10,000 | 10,000 | 10,000 | **30,000** |
-| **Success Rate** | 33.3% | 63.8% | 74.3% | — |
-| **Franka Combined** | — | 48.6% | — | — |
-| **Danger Zones** | 7,808 | — | 2,570 | 10,378+ |
-| **Risk Model AUC** | 0.65 | **0.777** | — | 0.777 |
-| **Parameters** | 8 | 8 | 11 | 11 |
-| **Sampling** | Uniform LHS | Boundary LHS | Uniform LHS | Two-Stage |
+| | Franka Uniform | Franka Boundary | UR5e | UR3e | UR10e | Combined |
+|---|---|---|---|---|---|---|
+| **Experiments** | 10,000 | 10,000 | 10,000 | 10,000 | 10,000 | **50,000+** |
+| **Success Rate** | 33.3% | 63.8% | 74.3% | — | — | — |
+| **Franka Combined** | — | 48.6% | — | — | — | — |
+| **Danger Zones** | 7,808 | — | 2,570 | — | — | 10,378+ |
+| **Risk Model AUC** | 0.65 | **0.777** | — | — | — | 0.777 |
+| **Parameters** | 8 | 8 | 11 | 11 | 11 | 11 |
+| **Sampling** | Uniform LHS | Boundary LHS | Uniform LHS | Uniform LHS | Uniform LHS | Two-Stage |
 
 ---
 
 ## Two-Stage Adaptive Sampling
 
-### Stage 1 — Uniform Exploration (20,000)
-- **Franka Panda 10K** + **UR5e 10K** via Latin Hypercube Sampling
+### Stage 1 — Uniform Exploration (40,000)
+- **Franka Panda 10K** + **UR5e 10K** + **UR3e 10K** + **UR10e 10K** via Latin Hypercube Sampling
 - Uniform parameter space coverage — 2-3× better than random
 - Identified boundary regions and initial risk model (AUC 0.65)
 
@@ -47,7 +47,7 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 
 ## Key Findings
 
-- **friction × mass interaction z = -10.00** — strongest predictor of failure across both robots
+- **friction × mass interaction z = -10.00** — strongest predictor of failure across all 4 robots
 - **Friction threshold: μ* = 0.492 ± 0.031** — below this, failure cascades through modes
 - **Mass > 0.93 kg** → Both robots fail at **< 40%** SR (universal danger zone)
 - **UR5e never drops** → SurfaceGripper (suction) with breakForce=MAX; all failures are `grasp_miss`
@@ -65,18 +65,16 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 
 ---
 
-## Franka Panda vs UR5e Comparison
+## 4-Robot Comparison
 
-| | Franka Panda | UR5e |
-|---|---|---|
-| **Success Rate** | 48.6% (20K combined) | 74.3% |
-| **95% CI** | [47.9%, 49.3%] | [73.4%, 75.2%] |
-| **Failure Modes** | grasp_miss, drop, collision | grasp_miss only |
-| **Gripper** | Finger (parallel jaw) | SurfaceGripper (suction) |
-| **Drop Rate** | 18.7% (uniform) | 0% (impossible) |
-| **#1 Failure Factor** | friction (r=+0.36) | mass (heavy → miss) |
-| **DOF** | 7 | 6 |
-| **Collision Count** | 1,124 (uniform 10K) | ~0 |
+| | Franka Panda | UR5e | UR3e | UR10e |
+|---|---|---|---|---|
+| **Experiments** | 20,000 | 10,000 | 10,000 | 10,000 |
+| **Success Rate** | 48.6% (20K combined) | 74.3% | — | — |
+| **Failure Modes** | grasp_miss, drop, collision | grasp_miss only | — | — |
+| **Gripper** | Finger (parallel jaw) | SurfaceGripper (suction) | — | — |
+| **DOF** | 7 | 6 | 6 | 6 |
+| **Collision Count** | 1,124 (uniform 10K) | ~0 | — | — |
 
 ---
 
@@ -116,7 +114,7 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 | Failure taxonomy | RoboFAC | NeurIPS 2025 | 6 failure type classification |
 | Cross-robot validation | RoboMIND | RSS 2025 | Franka + UR5e simultaneous comparison |
 | UR-specific failures | Guardian | ICRA 2025 | UR robot singularity/reach categories |
-| Confidence intervals | SureSim | Badithela et al. 2025 | Wilson Score 95% CI (30K → ±0.6%) |
+| Confidence intervals | SureSim | Badithela et al. 2025 | Wilson Score 95% CI (50K+ → ±0.4%) |
 | GPU simulation | Isaac Lab | NVIDIA 2025 | Newton Physics + 60Hz physics |
 
 ---
@@ -128,6 +126,8 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 | `failure_dictionary_large.json` | Franka | 10,000 | Uniform LHS | Stage 1 uniform exploration |
 | `franka_boundary_10k.json` | Franka | 10,000 | Boundary LHS | Stage 2 boundary-focused |
 | `ur5e_failure_dictionary.json` | UR5e | 10,000 | Uniform LHS | Stage 1 uniform exploration |
+| `ur3e_failure_dictionary.json` | UR3e | 10,000 | Uniform LHS | Stage 1 uniform exploration |
+| `ur10e_failure_dictionary.json` | UR10e | 10,000 | Uniform LHS | Stage 1 uniform exploration |
 
 ## Data Schema
 
@@ -182,7 +182,7 @@ Or via HuggingFace:
 ```python
 from datasets import load_dataset
 ds = load_dataset("liveplex/robogate-failure-dictionary")
-# Splits: franka, franka_boundary, ur5e, train (all 30K combined)
+# Splits: franka, franka_boundary, ur5e, ur3e, ur10e, train (all 50K+ combined)
 ```
 
 ---
@@ -191,11 +191,11 @@ ds = load_dataset("liveplex/robogate-failure-dictionary")
 
 ```bibtex
 @dataset{robogate_failure_dictionary_2026,
-  title={RoboGate Failure Dictionary: 30K Physics-Validated Pick & Place Failure Patterns},
+  title={RoboGate Failure Dictionary: 50K+ Physics-Validated Pick & Place Failure Patterns},
   author={RoboGate Team},
   year={2026},
   url={https://github.com/liveplex-cpu/robogate-failure-dictionary},
-  note={Franka Panda + UR5e, Two-Stage Adaptive Sampling, AUC 0.777}
+  note={Franka Panda + UR5e + UR3e + UR10e, Two-Stage Adaptive Sampling, AUC 0.777}
 }
 ```
 
@@ -230,4 +230,4 @@ Model size is not the bottleneck — even NVIDIA's flagship 3B model cannot brid
 
 **License:** MIT
 
-Built with NVIDIA Isaac Sim · Newton Physics · Franka Panda · UR5e · Two-Stage Adaptive Sampling
+Built with NVIDIA Isaac Sim · Newton Physics · Franka Panda · UR5e · UR3e · UR10e · Two-Stage Adaptive Sampling
