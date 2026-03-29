@@ -17,9 +17,9 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 | | Franka Uniform | Franka Boundary | UR5e | UR3e | UR10e | Combined |
 |---|---|---|---|---|---|---|
 | **Experiments** | 10,000 | 10,000 | 10,000 | 10,000 | 10,000 | **50,000+** |
-| **Success Rate** | 33.3% | 63.8% | 74.3% | — | — | — |
+| **Success Rate** | 33.3% | 63.8% | 74.3% | 10.0% | 0.0% | — |
 | **Franka Combined** | — | 48.6% | — | — | — | — |
-| **Danger Zones** | 7,808 | — | 2,570 | — | — | 10,378+ |
+| **Danger Zones** | 7,808 | — | 2,570 | 9,000+ | 10,000 | 10,378+ |
 | **Risk Model AUC** | 0.65 | **0.777** | — | — | — | 0.777 |
 | **Parameters** | 8 | 8 | 11 | 11 | 11 | 11 |
 | **Sampling** | Uniform LHS | Boundary LHS | Uniform LHS | Uniform LHS | Uniform LHS | Two-Stage |
@@ -70,10 +70,11 @@ A structured database of robot AI failure patterns collected from **NVIDIA Isaac
 | | Franka Panda | UR5e | UR3e | UR10e |
 |---|---|---|---|---|
 | **Experiments** | 20,000 | 10,000 | 10,000 | 10,000 |
-| **Success Rate** | 48.6% (20K combined) | 74.3% | — | — |
-| **Failure Modes** | grasp_miss, drop, collision | grasp_miss only | — | — |
-| **Gripper** | Finger (parallel jaw) | SurfaceGripper (suction) | — | — |
+| **Success Rate** | 48.6% (20K combined) | 74.3% | 10.0% | 0.0% |
+| **Failure Modes** | grasp_miss, drop, collision | grasp_miss only | grasp_miss, collision | grasp_miss, collision |
+| **Gripper** | Finger (parallel jaw) | SurfaceGripper (suction) | Finger (parallel jaw) | Finger (parallel jaw) |
 | **DOF** | 7 | 6 | 6 | 6 |
+| **Payload** | 3 kg | 5 kg | 3 kg | 12.5 kg |
 | **Collision Count** | 1,124 (uniform 10K) | ~0 | — | — |
 
 ---
