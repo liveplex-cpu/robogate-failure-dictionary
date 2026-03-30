@@ -202,9 +202,9 @@ ds = load_dataset("liveplex/robogate-failure-dictionary")
 
 ---
 
-## VLA Benchmark — 4-Model Leaderboard
+## VLA Benchmark — 6-Model Leaderboard
 
-Four VLA models evaluated on RoboGate's 68-scenario adversarial suite. **All scored 0% SR** — including NVIDIA's official GR00T N1.6.
+Six VLA models evaluated on RoboGate's 68-scenario adversarial suite. **All scored 0% SR** — including NVIDIA's 3B GR00T and HuggingFace's 450M SmolVLA.
 
 | Model | Params | SR | Confidence | Failure Pattern |
 |-------|--------|-----|-----------|-----------------|
@@ -212,9 +212,10 @@ Four VLA models evaluated on RoboGate's 68-scenario adversarial suite. **All sco
 | **GR00T N1.6 (NVIDIA)** | 3B | 0% (0/68) | 1/100 | grasp_miss + collision |
 | OpenVLA (Stanford + TRI) | 7B | 0% (0/68) | 27/100 | grasp_miss dominant, 0 collision |
 | Octo-Base (UC Berkeley) | 93M | 0% (0/68) | 1/100 | grasp_miss 79%, collision 21% |
+| SmolVLA Base (HuggingFace) | 450M | 0% (0/68) | 1/100 | grasp_miss dominant, avg 18ms inference |
 | Octo-Small (UC Berkeley) | 27M | 0% (0/68) | 1/100 | grasp_miss 79.4%, collision 20.6% |
 
-Model size is not the bottleneck — even NVIDIA's flagship 3B model cannot bridge the training-deployment distribution gap.
+Model size is not the bottleneck — from 27M (Octo-Small) to 7B (OpenVLA), no VLA bridges the training-deployment distribution gap without fine-tuning.
 
 **Leaderboard:** [robogate.io/vla](https://robogate.io/vla) · **Paper:** [arXiv:2603.22126](https://arxiv.org/abs/2603.22126)
 
