@@ -222,6 +222,20 @@ Model size is not the bottleneck — from 27M (Octo-Small) to 7B (OpenVLA), incl
 
 ---
 
+## Ecosystem Integrations
+
+This failure dictionary is used across the NVIDIA Physical AI ecosystem:
+
+| Integration | Description | Status |
+|-------------|-------------|--------|
+| **[Cosmos Evaluator Plugin](https://github.com/liveplex-cpu/robogate/tree/main/contrib/cosmos-evaluator-plugin)** | 50K+ failure patterns power the `failure_pattern` checker in our Cosmos Evaluator plugin. Danger zones and boundary equations from this dataset drive risk scoring. | Live |
+| **[Azure Physical AI Toolchain](https://github.com/liveplex-cpu/robogate/tree/main/contrib/azure-physical-ai)** | RoboGate evaluation step in Microsoft's Physical AI pipeline. This dataset validates policy safety before Azure ML deployment. | Live |
+| **[Isaac Lab-Arena Benchmark](https://github.com/isaac-sim/IsaacLab-Arena)** | 68-scenario adversarial Pick & Place suite contributed as a benchmark task, derived from failure patterns in this dataset. | PR #506 |
+
+**Pipeline position:** Cosmos Curator → Cosmos Transfer → **RoboGate Validation (this data)** → Cosmos Evaluator → Deployment
+
+---
+
 ## Links
 
 - **RoboGate Platform**: [github.com/liveplex-cpu/robogate](https://github.com/liveplex-cpu/robogate)
