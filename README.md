@@ -202,13 +202,14 @@ ds = load_dataset("liveplex/robogate-failure-dictionary")
 
 ---
 
-## VLA Benchmark — 7-Model Leaderboard
+## VLA Benchmark — 9-Model Leaderboard
 
 Seven models (6 VLA + scripted baseline) evaluated on RoboGate's 68-scenario adversarial suite. **All VLAs scored 0% SR** — including Physical Intelligence's PI0, NVIDIA's GR00T, and HuggingFace's SmolVLA.
 
 | Model | Params | SR | Confidence | Failure Pattern |
 |-------|--------|-----|-----------|-----------------|
 | Scripted Controller | — | **100%** (68/68) | 76/100 | — |
+| **GR00T N1.6 (LIBERO-finetuned)** | 3B | 0% (0/68) | 49/100 | LIBERO 97.65% → RoboGate 0% |
 | **PI0 Base (Physical Intelligence)** | 3.5B | 0% (0/68) | 27/100 | grasp_miss dominant, OpenPI inference |
 | **GR00T N1.6 (NVIDIA)** | 3B | 0% (0/68) | 1/100 | grasp_miss + collision |
 | OpenVLA (Stanford + TRI) | 7B | 0% (0/68) | 27/100 | grasp_miss dominant, 0 collision |
@@ -216,7 +217,7 @@ Seven models (6 VLA + scripted baseline) evaluated on RoboGate's 68-scenario adv
 | Octo-Base (UC Berkeley) | 93M | 0% (0/68) | 1/100 | grasp_miss 79%, collision 21% |
 | Octo-Small (UC Berkeley) | 27M | 0% (0/68) | 1/100 | grasp_miss 79.4%, collision 20.6% |
 
-Model size is not the bottleneck — from 27M (Octo-Small) to 7B (OpenVLA), including Physical Intelligence's PI0 (3.5B), no VLA bridges the training-deployment distribution gap without fine-tuning.
+**Cross-Simulator Gap:** GR00T N1.6, fine-tuned on LIBERO-Spatial (97.65% SR on MuJoCo), scores 0% on RoboGate's Isaac Sim scenarios. Model size is not the bottleneck — from 27M to 7B, no VLA bridges the training-deployment distribution gap without fine-tuning on the target environment.
 
 **Leaderboard:** [robogate.io/vla](https://robogate.io/vla) · **Paper:** [arXiv:2603.22126](https://arxiv.org/abs/2603.22126)
 
