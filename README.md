@@ -1,5 +1,10 @@
 # RoboGate Failure Dictionary
 
+> **Validation is essential to making Physical AI practical.**
+> RoboGate is the validation layer — 97.65% on LIBERO (MuJoCo) becomes
+> 0% on Isaac Sim industrial scenarios for the same NVIDIA GR00T N1.6
+> model.
+
 > **50,000+ Physics-Validated Pick & Place Failure Patterns across 4 Robots (Franka Panda, UR5e, UR3e, UR10e)**
 
 ![Experiments](https://img.shields.io/badge/experiments-50%2C000%2B-blue)
